@@ -1,0 +1,21 @@
+<h3>List!</h3>
+    <nav class="navbar navbar-default row">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <ul class="nav navbar-nav">
+            </ul></br>
+           
+<table border="2"> 
+  <th>Task Name</th> 
+   <th>Date</th>
+    <tr ng-repeat = "task in taskList">  
+     <td>{{task.name}}</td>
+      <td>{{task.date}}</td>
+       </tr>
+        </table>
+</br></br> </br></br> </br> </br>  
+<a ui-sref="listsave()">CompletedList</a>   
+ <button type = "icon-plus" ng-click = "newtask()">New Task</button>  
+  </div>
+   </div>
+    </nav>

@@ -1,17 +1,23 @@
 
 var app = angular.module('loginApp');
 
-app.controller('loginCtrl', function($scope, $stateParams, $state) {
+app.controller('loginCtrl', function($scope, $stateParams, userAccountService, $state) {
   $scope.name = 'Hello';
   
-  $scope.myuser={username:'',password:''};
+ $scope.myuser={username:'',password:''};
   
   $scope.register = function(){
     $state.go('register');
   }
-  $scope.submit=function()
+  $scope.submit=function(user)
   {
-  
-      $state.go('list');
+    userAccountService.isExistUser(user).then(function(resp){
+    	if(resp){
+    		$state.go('list');
+    	}
+
+    })
+       
      }
+
  });

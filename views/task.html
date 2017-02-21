@@ -5,9 +5,11 @@
         <div class="navbar-header">
           <ul class="nav navbar-nav">
             </ul></br>
+ <form name="uform">           
 <label>Task Name : </br></label>
   <input type="text" id="taskName" name="taskName" ng-model="task.name" /></br></br>
     <label>Complete Date : </br></label>
       <input type="date" id="date" name="date" ng-model="task.date"></br></br>
         <button ng-click="savetask(task)">Save Task</button>
-          <button type="reset" ng-click="reset()">Reset</button>        
+          <button type="reset" ng-click="resetuform()">Reset</button>
+          </form>        

@@ -1,10 +1,13 @@
 var app = angular.module('loginApp');
 
-app.controller('registerCtrl', function($scope, $stateParams, $state) {
+app.controller('registerCtrl', function($scope, $stateParams, userAccountService, $state) {
 
- $scope.save = function() {
+ $scope.saveuser = function(user) {
+
+    userAccountService.saveuser(user);
 
     $state.go('login');
   }
 
+ 
  });

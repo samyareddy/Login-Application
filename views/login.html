@@ -8,7 +8,7 @@
 <form name="userForm">
   <div>
     <label>User Name :</br></label>
-      <input type="text" id= "userName" name= "userName" ng-model="user.userName" ng-pattern = "/[a-zA-Z]/"   required /></br>
+      <input type="text" id= "userName" name= "userName" ng-model="user.userName" ng-pattern = "/[  a-zA-Z]/"   required /></br>
           <div ng-messages = "userForm.userName.$error">
             <div ng-message = "required">*User Name is required</div>
               <div ng-message = "pattern">*User Name is invalid</div>

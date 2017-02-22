@@ -29,12 +29,12 @@ var loginApp = angular.module('loginApp',['ui.router','ngMessages']);
   controller : "taskCtrl",
  })
 
-.state("completedlist",{
-  url : "/completedlist",
-  templateUrl : "views/completedlist.html",
-  controller : "completedlistCtrl",
+.state("completed",{
+  url : "/completed",
+  templateUrl : "views/completed.html",
+  controller : "listCtrl"
+  
  })
-
 
 
 

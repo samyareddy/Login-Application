@@ -1,3 +1,5 @@
+'use strict';
+
 var app = angular.module('loginApp');
 
 app.factory('TaskService', function() {
@@ -23,31 +25,32 @@ app.factory('TaskService', function() {
        return List;
        }
     
-     factory.getTask = function(index){
+     factory.gettask = function(index){
     var completedList =  JSON.parse(localStorage.getItem('completedList'));
     console.log(angular.copy(completedList));
      return completedList[index];
     }
       
 
-    factory.updateTask = function(index){
-     
-   var completedList =  JSON.parse(localStorage.getItem('completedList'));
-    console.log(angular.copy(completedList));
-    completedList[index] = Task; 
-   localStorage.setItem('completedList', JSON.stringify(completedList));
+   factory.updatetask = function(index){
+     task.is_complete = true;
 
+       task.splice(index, 1);
+   var completedList =  JSON.parse(localStorage.getItem('completedList'));
+   console.log(angular.copy(completedList));
    
+     return completedList[index];
+
     }
 
 
       factory.deletetask = function(index){
       var List =  JSON.parse(localStorage.getItem('List'));
-        console.log(angular.copy(List));
-        List.splice(index, 1);
-        console.log(angular.copy(List));
-         localStorage.setItem('List', JSON.stringify(List));
-        return List;
+      console.log(angular.copy(List));
+      List.splice(index, 1);
+      console.log(angular.copy(List));
+      localStorage.setItem('List', JSON.stringify(List));
+      return List;
     }
        return factory;
      });

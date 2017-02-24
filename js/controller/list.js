@@ -10,20 +10,17 @@ $scope.taskList= TaskService.taskDetails();
  
  $scope.updatetask = function(index){
 
-
  TaskService.updatetask(index);
             
-$scope.taskList = TaskService.taskDetails();
+ $scope.taskList = TaskService.taskDetails();
 
         }
 
   
-
-
-  $scope.deletetask = function(index){
-  console.log("task")
-  TaskService.deletetask(index);
-  $scope.taskList = TaskService.taskDetails();
+ $scope.deletetask = function(index){
+ console.log("task")
+ TaskService.deletetask(index);
+ $scope.taskList = TaskService.taskDetails();
           };    
 
 

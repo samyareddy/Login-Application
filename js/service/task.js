@@ -25,23 +25,21 @@ app.factory('TaskService', function() {
        return List;
        }
     
-     factory.gettask = function(index){
+    factory.gettask = function(index){
     var completedList =  JSON.parse(localStorage.getItem('completedList'));
     console.log(angular.copy(completedList));
      return completedList[index];
     }
       
 
-   factory.updatetask = function(index){
-     task.is_complete = true;
+    factory.updatetask = function(index){
 
-       task.splice(index, 1);
-   var completedList =  JSON.parse(localStorage.getItem('completedList'));
-   console.log(angular.copy(completedList));
-   
-     return completedList[index];
-
-    }
+     $scope.taskList[$index].is_complete = true;
+    
+     var completedList =  JSON.parse(localStorage.getItem('completedList'));
+     console.log(angular.copy(completedList));
+     localStorage.setItem('completedList', JSON.stringify(completedList));
+      }
 
 
       factory.deletetask = function(index){

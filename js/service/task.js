@@ -1,54 +1,59 @@
 'use strict';
 
-var app = angular.module('loginApp');
+  var app = angular.module('loginApp');
+  app.factory('TaskService', function() {
 
-app.factory('TaskService', function() {
+    var factory = {};
+   
 
-   var factory = {};
-   var List = [];
+    factory.saveTask = function(task){
 
-   factory.savetask = function(task){
-
-    List =  JSON.parse(localStorage.getItem('List'));
-    console.log(angular.copy(task));
-    if(List == null){
-     List = [];
-    }
-
-        List.push(task);
-      console.log(angular.copy(List));
-     localStorage.setItem('List', JSON.stringify(List));
-   }
-      factory.taskDetails = function(){
       var List =  JSON.parse(localStorage.getItem('List'));
-      console.log(angular.copy(List));
-       return List;
-       }
-    
-    factory.gettask = function(index){
-    var completedList =  JSON.parse(localStorage.getItem('completedList'));
-    console.log(angular.copy(completedList));
-     return completedList[index];
-    }
-      
-
-    factory.updatetask = function(index){
-
-     $scope.taskList[$index].is_complete = true;
-    
-     var completedList =  JSON.parse(localStorage.getItem('completedList'));
-     console.log(angular.copy(completedList));
-     localStorage.setItem('completedList', JSON.stringify(completedList));
+      console.log(angular.copy(task));
+      if(List == null){
+        List = [];
       }
 
+      task.id = Math.floor((Math.random() * 100000) + 1);
+      List.push(task);
+      console.log(angular.copy(List));
+      localStorage.setItem('List', JSON.stringify(List));
+      return List;
+    }
 
-      factory.deletetask = function(index){
+    factory.taskDetails = function(){
       var List =  JSON.parse(localStorage.getItem('List'));
       console.log(angular.copy(List));
+      return List;
+    }
+    
+  
+    factory.updateTask = function(task){
+      var List =  JSON.parse(localStorage.getItem('List'));
+      console.log(task);
+      for(var i= 0; i< List.length; i++){
+        if(List[i].id == task.id){
+          List[i].is_complete = true;
+        }
+      }
+      localStorage.setItem('List', JSON.stringify(List));
+      return List;
+    }
+
+    factory.deleteTask = function(task){
+      var List =  JSON.parse(localStorage.getItem('List'));
+      console.log(angular.copy(List));
+      var index = 0;
+      for(var i= 0; i< List.length; i++){
+        if(List[i].id == task.id){
+          index = i;
+        }
+      }
       List.splice(index, 1);
       console.log(angular.copy(List));
       localStorage.setItem('List', JSON.stringify(List));
       return List;
     }
-       return factory;
-     });
+
+    return factory;
+  });

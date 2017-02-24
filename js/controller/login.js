@@ -9,6 +9,7 @@ app.controller('loginCtrl', function($scope, $stateParams, userAccountService, $
   $scope.register = function(){
     $state.go('register');
   }
+
   $scope.submit=function(user)
   {
     userAccountService.isExistUser(user).then(function(resp){
@@ -18,6 +19,6 @@ app.controller('loginCtrl', function($scope, $stateParams, userAccountService, $
 
     })
        
-     }
+  }
 
  });

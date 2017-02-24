@@ -2,37 +2,27 @@ var app = angular.module('loginApp');
 
 app.controller('listCtrl', function($scope, $stateParams, $state, TaskService) {
 
- $scope.newtask = function(){
-   $state.go('task');
- }
-$scope.taskList= TaskService.taskDetails();
 
- 
- $scope.updatetask = function(index){
+  $scope.go_new_task = function(){
+    $state.go('task');
+  }
 
- TaskService.updatetask(index);
-            
- $scope.taskList = TaskService.taskDetails();
+  $scope.taskList = TaskService.taskDetails();
 
-        }
+  $scope.updateTask = function(task){
+    $scope.taskList = TaskService.updateTask(task);
+  }
 
-  
- $scope.deletetask = function(index){
- console.log("task")
- TaskService.deletetask(index);
- $scope.taskList = TaskService.taskDetails();
-          };    
+  $scope.deleteTask = function(task){
+    $scope.taskList = TaskService.deleteTask(task);
+  }    
 
+  $scope.go_completed_list = function(){
+    $state.go('completed'); 
+  }
 
- $scope.Completedlist = function(){
- 
-  $state.go('completed'); 
-        }
+  $scope.go_todo_list = function(){
+    $state.go('list'); 
+  }
 
-
- $scope.todolist = function(){
- 
-  $state.go('list'); 
-        }
-
-  } );
+  });
